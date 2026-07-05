@@ -1,157 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Movie Details Page</title>
-  <style>
-    /* Global styles */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: #fff;
-      /* Background image with dark overlay */
-      background: #000 url('avatar4.jpg') no-repeat center center/cover;
-      background-attachment: fixed;
-    }
-    header {
-      padding: 20px;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.7);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-    /* Hero section with overlay blur */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, .30);    /* Semi-transparent overlay */
-      backdrop-filter: blur(2px);        /* Blur background behind overlay */
-    }
-    .hero-content {
-      position: relative;
-      display: flex;
-      max-width: 800px;
-      width: 90%;
-      background: rgba(255, 255, 255, 0.1);  /* Slightly tinted container */
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.7);
-    }
-    .hero-content img.poster {
-      width: 250px;
-      height: auto;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-    .details {
-      padding: 20px;
-      flex-grow: 1;
-    }
-    .details h1 {
-      margin-top: 0;
-      font-size: 28px;
-    }
-    .details .genre, .details .rating {
-      margin: 5px 0;
-      font-size: 14px;
-      opacity: 0.9;
-    }
-    .details .synopsis {
-      margin: 15px 0;
-      line-height: 1.5;
-    }
-    .button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background: #e50914;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    /* Subtitles section */
-    .episodes {
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.8);
-      max-width: 800px;
-      margin: 20px auto;
-      border-radius: 8px;
-    }
-    .episodes h2 {
-      margin-top: 0;
-      font-size: 22px;
-    }
-    .episodes ul {
-      list-style: none;
-      padding: 0;
-    }
-    .episodes li {
-      margin: 8px 0;
-      font-size: 16px;
-    }
-    .episodes a {
-      color: #1e90ff;
-      text-decoration: none;
-    }
-    /* Responsive: stack poster above details on small screens */
-    @media (max-width: 600px) {
-      .hero-content {
-        flex-direction: column;
-        align-items: center;
-      }
-      .hero-content img.poster {
-        width: 100%;
-        max-width: 300px;
-      }
-      .details {
-        padding: 15px;
-      }
-      .episodes {
-        margin: 10px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Avatar (2009)</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    color:white;
+
+    background:url("G:\\AL Education\\HTML Files\\githubweb\\wenujawethmin.github.io\\moviesubweb\\Avatar (2009)\\avatar4.jpg") center center/cover fixed;
+}
+
+/* Dark overlay */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(2px);
+    z-index:-1;
+}
+
+/* Header */
+
+header{
+    background:rgba(0,0,0,.75);
+    padding:20px;
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    box-shadow:0 5px 15px rgba(0,0,0,.5);
+}
+
+/* Hero */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px 20px;
+}
+
+/* Main Card */
+
+.hero-content{
+
+    display:flex;
+
+    width:100%;
+    max-width:950px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.6);
+
+}
+
+/* Poster */
+
+.poster{
+
+    width:300px;
+    object-fit:cover;
+}
+
+/* Right Side */
+
+.details{
+
+    padding:35px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+}
+
+.details h1{
+
+    font-size:48px;
+    margin-bottom:15px;
+
+}
+
+.genre{
+
+    color:#dddddd;
+    margin-bottom:8px;
+    font-size:18px;
+}
+
+.rating{
+
+    color:#ffd700;
+    margin-bottom:20px;
+    font-size:18px;
+}
+
+.synopsis{
+
+    line-height:1.8;
+    color:#eeeeee;
+    margin-bottom:25px;
+
+}
+
+/* Button */
+
+.button{
+
+    display:inline-block;
+
+    width:fit-content;
+
+    background:#e50914;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:14px 30px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.button:hover{
+
+    background:#ff1d28;
+
+    transform:translateY(-3px);
+
+}
+
+/* Subtitle Section */
+
+.episodes{
+
+    width:90%;
+    max-width:950px;
+
+    margin:40px auto;
+
+    background:rgba(0,0,0,.75);
+
+    padding:30px;
+
+    border-radius:20px;
+
+}
+
+.episodes h2{
+
+    margin-bottom:20px;
+
+}
+
+.episodes ul{
+
+    list-style:none;
+
+}
+
+.episodes li{
+
+    margin:15px 0;
+
+    font-size:18px;
+
+}
+
+.episodes a{
+
+    color:#2ea8ff;
+    text-decoration:none;
+
+}
+
+.episodes a:hover{
+
+    color:white;
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.hero{
+
+    padding:20px;
+
+}
+
+.hero-content{
+
+    flex-direction:column;
+
+    max-width:420px;
+
+}
+
+.poster{
+
+    width:100%;
+    height:auto;
+
+}
+
+.details{
+
+    text-align:center;
+
+    padding:25px;
+
+}
+
+.details h1{
+
+    font-size:34px;
+
+}
+
+.genre,
+.rating{
+
+    font-size:16px;
+
+}
+
+.synopsis{
+
+    font-size:15px;
+
+}
+
+.button{
+
+    margin:auto;
+
+}
+
+header{
+
+    font-size:20px;
+
+}
+
+}
+
+</style>
 </head>
+
 <body>
-  <header>
-    <h1>My Movie Web Site</h1>
-  </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <img src="Avatar_(2009_film)_poster.jpg" alt="Movie Poster" class="poster">
-      <div class="details">
-        <h1>Avatar(2009)</h1>
-        <p class="genre">Sci-fi / Action / Adventure</p>
-        <p class="rating">Rating: 7.9/10</p>
-        <p class="synopsis">
-          A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.
-        </p>
-        <a href="https://youtu.be/5PSNL1qE6VY?si=huzobBDtinASj5S8" target ="_blank" class="button">Watch Trailer</a>
-      </div>
-    </div>
-  </section>
+<header>
 
-  <section class="episodes">
-    <h2>Subtitles</h2>
-    <ul>
-      <li>Episode 1 - <a href="#">Download</a></li>
-      <li>Episode 2 - <a href="#">Download</a></li>
-      <li>Episode 3 - <a href="#">Download</a></li>
-    </ul>
-  </section>
+My Movie App
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<img src="avatar5.webp" class="poster">
+
+<div class="details">
+
+<h1>Avatar (2009)</h1>
+
+<p class="genre">Action • Adventure • Sci-Fi</p>
+
+<p class="rating">⭐ 8.5 / 10</p>
+
+<p class="synopsis">
+
+A paraplegic Marine is sent to Pandora on a unique mission but becomes torn between following his orders and protecting the world he feels is his new home.
+
+</p>
+
+<a href="https://youtu.be/5PSNL1qE6VY?si=huzobBDtinASj5S8" target="_blank" class="button">
+
+Watch Trailer
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="episodes">
+
+<h2>English Subtitles</h2>
+
+<ul>
+
+<li>1080p BluRay - <a href="#">Download</a></li>
+
+<li>720p BluRay - <a href="#">Download</a></li>
+
+<li>480p BluRay - <a href="#">Download</a></li>
+
+</ul>
+
+</section>
+
 </body>
 </html>
